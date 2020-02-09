@@ -14,8 +14,8 @@ public class PoquMain {
     public static void main(String[] args) {
         
         Grid cool = new Grid();
-        int posX = 0;
-        int posY = 4;
+        int posY = 0;
+        int posX = 4;
         String[][] world = new String[5][5]; 
         
         for (int i = 0; i < world.length; i++) {

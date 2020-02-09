@@ -10,7 +10,7 @@ package poqu2;
  * @author User
  */
 public class Grid {
-    // IMPORTANT: Y AND X FLIPPED
+    // IMPORTANT: Y AND X FLIPPED WHEN PRINTING
     private String[][] world = new String[5][5];
     private boolean[][] exploredWorld = new boolean[5][5];
     private String[] observedPoqu = new String[10]; // change size l8tr sk8r // DAIJI DA!!!
@@ -32,16 +32,17 @@ public class Grid {
         return poquLocations;
     }
     
+    // 100% working
     public static String[][] makeWorld(String[][] world, int posX, int posY, boolean[][] exploredWorld) {
         
         for (int i = 0; i < world.length; i++) {
             for (int j = 0; j < world[0].length; j++) {
-                if (posY == j && posX == i) {
+                if (posX == j && posY == i) {
                     world[i][j] = "P"; // cool user symbol; user iru!
                 } else if (isExplored(exploredWorld, i, j)){
                     world[i][j] = "O"; // user inai, space was explored
                 } else {
-                    world[i][j] = "*";
+                    world[i][j] = "*"; // user inai && space was not explored
                 }
             }
         }
@@ -55,7 +56,7 @@ public class Grid {
     
     public static boolean isExplored(boolean[][] exploredWorld, int posX, int posY) {
     
-        return exploredWorld[posY][posX];
+        return exploredWorld[posX][posY];
     
     }
     
