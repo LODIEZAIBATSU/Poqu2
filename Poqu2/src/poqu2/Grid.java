@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package poqu2;
-
+import java.util.Random;
 /**
  *
  * @author User
@@ -51,7 +51,17 @@ public class Grid {
     }
     
     // inserts random # of poqu accross the grid in various random coords, updates poquLocations[][]
-    public static void insertPoqu(String[][] poquLocations) { // amount of poqu is less than half of the grid's total size (columns * rows)
+    public static String[][] insertPoqu(String[][] poquLocations) { // amount of poqu is less than half of the grid's total size (columns * rows)
+        Random rand = new Random();
+        int numberOfPoqu = rand.nextInt((poquLocations.length * poquLocations[0].length) / 2);
+        numberOfPoqu += 2; // we gotta have at least two poqu
+        for (int i = 0; i < numberOfPoqu; i++) {
+            int rand1 = rand.nextInt(poquLocations.length);
+            int rand2 = rand.nextInt(poquLocations.length);
+            poquLocations[rand1][rand2] = "1";
+        }
+        
+        return poquLocations;
     }
     
     public static boolean isExplored(boolean[][] exploredWorld, int posX, int posY) {

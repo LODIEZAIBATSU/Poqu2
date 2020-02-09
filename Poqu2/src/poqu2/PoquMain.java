@@ -38,5 +38,17 @@ public class PoquMain {
          world = cool.makeWorld(world, posX, posY, exploredWorld);
          cool.printWorld(world);
          
+         
+         // testing rand poquLocations
+          System.out.println();
+          String[][] insertPoqu = cool.getPoquLocations();
+          for (int i = 0; i < insertPoqu.length; i++) {
+              for (int j = 0; j < insertPoqu[0].length; j++) {
+                  insertPoqu[i][j] = "0"; // 0 represents an empty space
+              }
+          }
+           
+          insertPoqu = cool.insertPoqu(insertPoqu);
+          cool.printWorld(insertPoqu);
     }
 }
